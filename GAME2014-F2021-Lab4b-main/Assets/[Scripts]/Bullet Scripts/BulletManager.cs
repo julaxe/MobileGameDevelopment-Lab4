@@ -60,6 +60,10 @@ public class BulletManager
         if (bulletPools[(int)type].Count < 1)
         {
             AddBullet(type);
+            if(type == BulletType.PLAYER)
+            {
+                Debug.Log("No more bullets -- adding a new one");
+            }
         }
 
         temp_bullet = bulletPools[(int)type].Dequeue();

@@ -28,9 +28,11 @@ public class PlayerBehaviour : MonoBehaviour
     {
         Move();
         CheckBounds();
+    }
+    private void Update()
+    {
         CheckFire();
     }
-
     private void Move()
     {
         var x = Input.GetAxisRaw("Horizontal");
@@ -57,7 +59,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void CheckFire()
     {
-        if ((Time.frameCount % frameDelay == 0) && (Input.GetAxisRaw("Jump") > 0))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             BulletManager.Instance().GetBullet(bulletSpawn.position, BulletType.PLAYER);
         }
